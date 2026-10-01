@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>WORLD TIME | Reloj Mundial Inteligente</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- FONDO -->
+    <div class="background-grid"></div>
+
+    <div class="ambient-glow glow-one"></div>
+    <div class="ambient-glow glow-two"></div>
+
+    <!-- ESTRELLAS -->
+    <div class="stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="app-container">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div class="brand">
+
+                <div class="brand-title">
+                    WORLD <span>TIME</span>
+                </div>
+
+                <div
+                    class="brand-subtitle"
+                    id="brandSubtitle"
+                >
+                    RELOJ MUNDIAL INTELIGENTE
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="language-switch">
+
+                    <button
+                        id="btnSpanish"
+                        class="language-button active"
+                        type="button"
+                    >
+                        ES
+                    </button>
+
+                    <button
+                        id="btnEnglish"
+                        class="language-button"
+                        type="button"
+                    >
+                        EN
+                    </button>
+
+                </div>
+
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <span id="systemStatus">
+                        CONECTANDO...
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="clock-section">
+
+            <!-- VISUAL DEL TIEMPO -->
+            <div
+                class="time-visual"
+                id="timeVisual"
+            >
+
+                <!-- LUNA -->
+                <div
+                    class="moon"
+                    id="moon"
+                >
+
+                    <div class="crater crater-one"></div>
+                    <div class="crater crater-two"></div>
+                    <div class="crater crater-three"></div>
+
+                </div>
+
+
+                <!-- SOL -->
+                <div
+                    class="sun"
+                    id="sun"
+                >
+                    <div class="sun-core"></div>
+                </div>
+
+            </div>
+
+
+            <!-- MENSAJE -->
+            <div
+                class="time-message"
+                id="timeMessage"
+            >
+                Conectando con el sistema...
+            </div>
+
+
+            <!-- SALUDO -->
+            <h1
+                class="greeting"
+                id="greeting"
+            >
+                CARGANDO
+            </h1>
+
+
+            <!-- RELOJ -->
+            <div
+                class="clock"
+                id="clock"
+            >
+                00:00:00 AM
+            </div>
+
+
+            <!-- FECHA -->
+            <div
+                class="date"
+                id="date"
+            >
+                CARGANDO FECHA
+            </div>
+
+
+            <!-- UBICACIÓN -->
+            <div class="location">
+
+                <div class="location-city">
+
+                    <span class="location-icon">
+                        ◉
+                    </span>
+
+                    <span id="city">
+                        CARGANDO...
+                    </span>
+
+                    <span class="location-separator">
+                        ,
+                    </span>
+
+                    <span id="country">
+                        CARGANDO...
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="timezone"
+                    id="timezone"
+                >
+                    CARGANDO...
+                </div>
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="information-cards">
+
+                <div class="info-card">
+
+                    <span
+                        class="info-label"
+                        id="dayLabel"
+                    >
+                        DÍA DEL AÑO
+                    </span>
+
+                    <strong id="day">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span
+                        class="info-label"
+                        id="weekLabel"
+                    >
+                        SEMANA
+                    </span>
+
+                    <strong id="week">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span
+                        class="info-label"
+                        id="yearLabel"
+                    >
+                        AÑO
+                    </span>
+
+                    <strong id="year">
+                        ----
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN -->
+            <button
+                class="more-info-button"
+                id="moreInfo"
+                type="button"
+            >
+
+                <span class="button-icon">
+                    +
+                </span>
+
+                <span id="moreInfoText">
+                    MÁS INFORMACIÓN
+                </span>
+
+            </button>
+
+        </section>
+
+
+        <!-- PANEL DE INFORMACIÓN -->
+
+        <section
+            class="details-panel"
+            id="detailsPanel"
+            aria-hidden="true"
+        >
+
+            <div class="details-content">
+
+                <div class="details-header">
+
+                    <h2 id="detailsTitle">
+                        INFORMACIÓN DEL SISTEMA
+                    </h2>
+
+                    <button
+                        id="closeDetails"
+                        class="close-button"
+                        type="button"
+                        aria-label="Cerrar información"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="details-grid">
+
+                    <div class="detail-item">
+
+                        <span
+                            id="detailLocationLabel"
+                            class="detail-label"
+                        >
+                            UBICACIÓN
+                        </span>
+
+                        <strong id="detailLocation">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span
+                            id="detailTimezoneLabel"
+                            class="detail-label"
+                        >
+                            ZONA HORARIA
+                        </span>
+
+                        <strong id="detailTimezone">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span
+                            id="detailLanguageLabel"
+                            class="detail-label"
+                        >
+                            IDIOMA
+                        </span>
+
+                        <strong id="detailLanguage">
+                            Español
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span
+                            id="detailStatusLabel"
+                            class="detail-label"
+                        >
+                            ESTADO
+                        </span>
+
+                        <strong id="detailStatus">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="api-status-box">
+
+                    <span>API</span>
+
+                    <strong id="apiStatus">
+                        CONECTANDO...
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="closeDetailsBottom"
+                    class="close-details-bottom"
+                    type="button"
+                >
+                    CERRAR
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <div>
+                WORLD TIME
+            </div>
+
+            <div>
+                © <span id="footerYear">2026</span>
+                · Sistema de reloj inteligente
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
